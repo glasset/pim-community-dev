@@ -32,12 +32,12 @@ $cUtilsDeps    = [
 $cDeps = array_merge($cBusinessDeps, $cUtilsDeps);
 
 $cAkeneoRules = [
-    new Rule('Akeneo\Component\Analytics', $cDeps, RuleInterface::TYPE_ONLY),
+    new Rule('Akeneo\Tool\Component\Analytics', $cDeps, RuleInterface::TYPE_ONLY),
     new Rule('Akeneo\Tool\Component\Batch', array_merge($cDeps, [
         'Symfony\Component\Console'
     ]),
     RuleInterface::TYPE_ONLY),
-    new Rule('Akeneo\Component\Buffer', $cDeps, RuleInterface::TYPE_ONLY),
+    new Rule('Akeneo\Tool\Component\Buffer', $cDeps, RuleInterface::TYPE_ONLY),
     new Rule(
         'Akeneo\Component\Classification',
         array_merge($cDeps, [
@@ -46,7 +46,7 @@ $cAkeneoRules = [
         RuleInterface::TYPE_ONLY
     ),
     new Rule(
-        'Akeneo\Component\Console',
+        'Akeneo\Tool\Component\Console',
         array_merge($cDeps, [
             'Symfony\Component\Process' // used in CommandLauncher
         ]),
@@ -62,14 +62,14 @@ $cAkeneoRules = [
         RuleInterface::TYPE_ONLY
     ),
     new Rule(
-        'Akeneo\Component\Localization',
+        'Akeneo\Tool\Component\Localization',
             array_merge($cDeps, [
                 'Symfony\Component\Translation', // to translate units of the metric attribute types
             ]),
             RuleInterface::TYPE_ONLY
     ),
     new Rule('Akeneo\Tool\Component\StorageUtils', $cDeps, RuleInterface::TYPE_ONLY),
-    new Rule('Akeneo\Component\Versioning', $cDeps, RuleInterface::TYPE_ONLY),
+    new Rule('Akeneo\Tool\Component\Versioning', $cDeps, RuleInterface::TYPE_ONLY),
 ];
 
 $cPimRules = [
@@ -77,10 +77,10 @@ $cPimRules = [
     new Rule(
         'Pim\Component\Catalog',
         array_merge($cDeps, [
-            'Akeneo\Component\Localization',   // to localize product's data
+            'Akeneo\Tool\Component\Localization',   // to localize product's data
             'Akeneo\Component\FileStorage',    // for product categories
             'Akeneo\Component\Classification', // to handle product's media
-            'Akeneo\Component\Versioning',     // for the history of all models
+            'Akeneo\Tool\Component\Versioning',     // for the history of all models
         ]),
         RuleInterface::TYPE_ONLY
     ),
@@ -89,9 +89,9 @@ $cPimRules = [
         array_merge($cDeps, [
             'Box\Spout',                     // to import/export CSV and XLSX files
             'Akeneo\Tool\Component\Batch',        // used as base import/export system
-            'Akeneo\Component\Buffer',       // to handle large files
+            'Akeneo\Tool\Component\Buffer',       // to handle large files
             'Akeneo\Component\FileStorage',  // to import/export product's media
-            'Akeneo\Component\Localization', // to use date and number formats in configuration
+            'Akeneo\Tool\Component\Localization', // to use date and number formats in configuration
             'Akeneo\Component\Classification', // to handle categories database reading
             'Pim\Component\Catalog',         // because ;)
             'Pim\Component\Localization',    // to check the localized data during an import

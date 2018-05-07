@@ -5,10 +5,10 @@ extensions:
 suites:
     ## Akeneo Components
     Analytics:
-        namespace: Akeneo\Component\Analytics
-        psr4_prefix: Akeneo\Component\Analytics
-        spec_path: src/Akeneo/Component/Analytics
-        src_path: src/Akeneo/Component/Analytics
+        namespace: Akeneo\Tool\Component\Analytics
+        psr4_prefix: Akeneo\Tool\Component\Analytics
+        spec_path: src/Akeneo/Tool/Component/Analytics
+        src_path: src/Akeneo/Tool/Component/Analytics
     Batch:
         namespace: Akeneo\Tool\Component\Batch
         psr4_prefix: Akeneo\Tool\Component\Batch
@@ -20,40 +20,40 @@ suites:
         spec_path: src/Akeneo/Component/BatchQueue
         src_path: src/Akeneo/Component/BatchQueue
     Buffer:
-        namespace: Akeneo\Component\Buffer
-        psr4_prefix: Akeneo\Component\Buffer
-        spec_path: src/Akeneo/Component/Buffer
-        src_path: src/Akeneo/Component/Buffer
+        namespace: Akeneo\Tool\Component\Buffer
+        psr4_prefix: Akeneo\Tool\Component\Buffer
+        spec_path: src/Akeneo/Tool/Component/Buffer
+        src_path: src/Akeneo/Tool/Component/Buffer
     Classification:
         namespace: Akeneo\Component\Classification
         psr4_prefix: Akeneo\Component\Classification
         spec_path: src/Akeneo/Component/Classification
         src_path: src/Akeneo/Component/Classification
     Console:
-        namespace: Akeneo\Component\Console
-        psr4_prefix: Akeneo\Component\Console
-        spec_path: src/Akeneo/Component/Console
-        src_path: src/Akeneo/Component/Console
+        namespace: Akeneo\Tool\Component\Console
+        psr4_prefix: Akeneo\Tool\Component\Console
+        spec_path: src/Akeneo/Tool/Component/Console
+        src_path: src/Akeneo/Tool/Component/Console
     FileStorage:
         namespace: Akeneo\Component\FileStorage
         psr4_prefix: Akeneo\Component\FileStorage
         spec_path: src/Akeneo/Component/FileStorage
         src_path: src/Akeneo/Component/FileStorage
     Localization:
-        namespace: Akeneo\Component\Localization
-        psr4_prefix: Akeneo\Component\Localization
-        spec_path: src/Akeneo/Component/Localization
-        src_path: src/Akeneo/Component/Localization
+        namespace: Akeneo\Tool\Component\Localization
+        psr4_prefix: Akeneo\Tool\Component\Localization
+        spec_path: src/Akeneo/Tool/Component/Localization
+        src_path: src/Akeneo/Tool/Component/Localization
     StorageUtils:
         namespace: Akeneo\Tool\Component\StorageUtils
         psr4_prefix: Akeneo\Tool\Component\StorageUtils
         spec_path: src/Akeneo/Tool/Component/StorageUtils
         src_path: src/Akeneo/Tool/Component/StorageUtils
     Versioning:
-        namespace: Akeneo\Component\Versioning
-        psr4_prefix: Akeneo\Component\Versioning
-        spec_path: src/Akeneo/Component/Versioning
-        src_path: src/Akeneo/Component/Versioning
+        namespace: Akeneo\Tool\Component\Versioning
+        psr4_prefix: Akeneo\Tool\Component\Versioning
+        spec_path: src/Akeneo/Tool/Component/Versioning
+        src_path: src/Akeneo/Tool/Component/Versioning
 
     ## Akeneo Bundles
     BatchBundle:
