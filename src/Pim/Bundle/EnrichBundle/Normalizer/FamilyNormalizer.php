@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Pim\Bundle\EnrichBundle\Normalizer;
 
+use Doctrine\Common\Util\ClassUtils;
 use Pim\Bundle\CatalogBundle\Filter\CollectionFilterInterface;
+use Pim\Bundle\EnrichBundle\Provider\StructureVersion\StructureVersionProviderInterface;
 use Pim\Bundle\VersioningBundle\Manager\VersionManager;
 use Pim\Component\Catalog\Model\FamilyInterface;
 use Pim\Component\Catalog\Model\FamilyVariantInterface;
@@ -41,13 +43,17 @@ class FamilyNormalizer implements NormalizerInterface
     /** @var NormalizerInterface */
     protected $versionNormalizer;
 
+    /** @var StructureVersionProviderInterface */
+    protected $structureVersionProvider;
+
     /**
-     * @param NormalizerInterface          $familyNormalizer
-     * @param NormalizerInterface          $attributeNormalizer
-     * @param CollectionFilterInterface    $collectionFilter
-     * @param AttributeRepositoryInterface $attributeRepository
-     * @param VersionManager               $versionManager
-     * @param NormalizerInterface          $versionNormalizer
+     * @param NormalizerInterface               $familyNormalizer
+     * @param NormalizerInterface               $attributeNormalizer
+     * @param CollectionFilterInterface         $collectionFilter
+     * @param AttributeRepositoryInterface      $attributeRepository
+     * @param VersionManager                    $versionManager
+     * @param NormalizerInterface               $versionNormalizer
+     * @param StructureVersionProviderInterface $structureVersionProvider
      */
     public function __construct(
         NormalizerInterface $familyNormalizer,
@@ -55,7 +61,8 @@ class FamilyNormalizer implements NormalizerInterface
         CollectionFilterInterface $collectionFilter,
         AttributeRepositoryInterface $attributeRepository,
         VersionManager $versionManager,
-        NormalizerInterface $versionNormalizer
+        NormalizerInterface $versionNormalizer,
+        StructureVersionProviderInterface $structureVersionProvider
     ) {
         $this->familyNormalizer = $familyNormalizer;
         $this->attributeNormalizer = $attributeNormalizer;
@@ -63,6 +70,7 @@ class FamilyNormalizer implements NormalizerInterface
         $this->attributeRepository = $attributeRepository;
         $this->versionManager = $versionManager;
         $this->versionNormalizer = $versionNormalizer;
+        $this->structureVersionProvider = $structureVersionProvider;
     }
 
     /**
@@ -99,6 +107,10 @@ class FamilyNormalizer implements NormalizerInterface
             'form'                    => 'pim-family-edit-form',
             'created'                 => $created,
             'updated'                 => $updated,
+            'model_type'              => 'family',
+            'structure_version'       => $this->structureVersionProvider->getStructureVersion(
+                ClassUtils::getClass($family)
+            ),
             'attributes_used_as_axis' => $this->getAllAttributeCodesUsedAsAxis($family),
         ];
 
